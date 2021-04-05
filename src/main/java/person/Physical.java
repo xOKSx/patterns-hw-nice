@@ -2,9 +2,9 @@ package person;
 
 public class Physical {
 
-    private final int age;
-    private final int weight;
-    private final double height;
+    public int age;
+    public int weight;
+    public double height;
 
     public Physical(final int age, final int weight, final double height) {
         this.age = age;

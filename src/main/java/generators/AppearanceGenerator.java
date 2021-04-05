@@ -9,7 +9,7 @@ import person.appearance.hair.ShortHair;
 
 import java.util.HashMap;
 
-public class AppearanceGenerator implements Generator<Appearance> {
+public class AppearanceGenerator extends Generator<Appearance> {
 
     private String eyes;
     private int hairLength;
@@ -21,8 +21,9 @@ public class AppearanceGenerator implements Generator<Appearance> {
      * Длина волос: i
      * Цвет волос: из enum по индексу i-1 при i>0 (=0..8).
      */
+
     @Override
-    public final void generateParams(final int code) {
+    protected final void generateParams(final int code) {
         final int i = code % 100 / 10;
         switch (i / 2) {
             case 0:
@@ -62,7 +63,7 @@ public class AppearanceGenerator implements Generator<Appearance> {
     }
 
     @Override
-    public final Appearance buildResponse() {
+    protected final Appearance buildResponse() {
         Hair hair;
         if (hairLength > 0) {
             hair = (hairLength > 4) ? new LongHair(hairColor) : new ShortHair(hairColor);

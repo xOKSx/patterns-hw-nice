@@ -2,7 +2,7 @@ package generators;
 
 import person.Physical;
 
-public class PhysGenerator implements Generator<Physical> {
+public class PhysGenerator extends Generator<Physical> {
 
     private int age;
     private int weight;
@@ -15,7 +15,7 @@ public class PhysGenerator implements Generator<Physical> {
      * Рост: 1..1,9 м.
      */
     @Override
-    public final void generateParams(final int code) {
+    protected final void generateParams(final int code) {
         final int i = code % 1000 / 100;
         age = (i + 1) * 10;
         weight = 30 + i * 10;
@@ -23,7 +23,7 @@ public class PhysGenerator implements Generator<Physical> {
     }
 
     @Override
-    public final Physical buildResponse() {
+    protected final Physical buildResponse() {
         return new Physical(age, weight, height);
     }
 }

@@ -3,7 +3,19 @@ import java.util.Scanner;
 
 public class Controller {
 
-    private final InputProcessor processor = new InputProcessor();
+    private static Controller instance;
+    private final InputProcessor processor;
+
+    private Controller() {
+        processor = new InputProcessor();
+    }
+
+    public static Controller getInstance() {
+        if (Controller.instance == null) {
+            Controller.instance = new Controller();
+        }
+        return Controller.instance;
+    }
 
     public final void launch() {
         final Scanner scanner = new Scanner(System.in, Charset.defaultCharset());

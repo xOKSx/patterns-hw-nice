@@ -2,7 +2,7 @@ package person;
 
 public class Phone {
 
-    private final String number;
+    public String number;
 
     public Phone(final String number) {
         this.number = number;
