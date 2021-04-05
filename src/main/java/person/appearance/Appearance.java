@@ -4,12 +4,19 @@ import person.appearance.hair.Hair;
 
 public class Appearance {
 
-    public final String eyes;
-    public final Hair hair;
+    private final String eyes;
+    private final Hair hair;
 
     public Appearance(final String eyes, final Hair hair) {
         this.eyes = eyes;
         this.hair = hair;
+    }
+
+    public final String getEyes() {
+        return this.eyes;
+    }
+    public final Hair getHair() {
+        return this.hair;
     }
 
     @Override

@@ -1,9 +1,4 @@
-import generators.AppearanceGenerator;
-import generators.FioGenerator;
-import generators.PhoneGenerator;
-import generators.PhysGenerator;
-import person.*;
-import person.appearance.Appearance;
+import person.PersonBuilder;
 
 public class InputProcessor {
 

@@ -2,14 +2,26 @@ package person;
 
 public class Physical {
 
-    public int age;
-    public int weight;
-    public double height;
+    private final int age;
+    private final int weight;
+    private final double height;
 
     public Physical(final int age, final int weight, final double height) {
         this.age = age;
         this.weight = weight;
         this.height = height;
+    }
+
+    public final int getAge() {
+        return this.age;
+    }
+
+    public final int getWeight() {
+        return this.weight;
+    }
+
+    public final double getHeight() {
+        return this.height;
     }
 
     @Override

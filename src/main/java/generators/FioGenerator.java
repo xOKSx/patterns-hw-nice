@@ -30,7 +30,7 @@ public class FioGenerator extends Generator<Fio> {
 
     @Override
     protected final Fio buildResponse() {
-        return new Fio(this.firstName,this.middleName,this.lastName);
+        return new Fio(this.firstName, this.middleName, this.lastName);
     }
 
     private void setLastNameFromFile(final int i, final String sex) {

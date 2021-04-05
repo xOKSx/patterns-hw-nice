@@ -14,37 +14,37 @@ public class PersonBuilder {
     private Appearance appearance;
     private Phone phone;
 
-    public PersonBuilder(String id) {
+    public PersonBuilder(final String id) {
         this.id = id;
     }
 
-    public PersonBuilder addFio(int intCode) {
+    public final PersonBuilder addFio(final int intCode) {
         this.fio = new FioGenerator().generate(intCode);
         return this;
     }
 
-    public PersonBuilder addPhysical(int intCode) {
+    public final PersonBuilder addPhysical(final int intCode) {
         this.physical = new PhysGenerator().generate(intCode);
         return this;
     }
 
-    public PersonBuilder addAppearance(int intCode) {
+    public final PersonBuilder addAppearance(final int intCode) {
         this.appearance = new AppearanceGenerator().generate(intCode);
         return this;
     }
 
-    public PersonBuilder addPhone(int intCode) {
+    public final PersonBuilder addPhone(final int intCode) {
         this.phone = new PhoneGenerator().generate(intCode);
         return this;
     }
 
-    public Person buildPerson() {
+    public final Person buildPerson() {
         Person person = new Person();
-        person.id = this.id;
-        person.fio = this.fio;
-        person.phys = this.physical;
-        person.appearance = this.appearance;
-        person.phone = this.phone;
+        person.setId(this.id);
+        person.setFio(this.fio);
+        person.setPhysical(this.physical);
+        person.setAppearance(this.appearance);
+        person.setPhone(this.phone);
         return person;
     }
 }

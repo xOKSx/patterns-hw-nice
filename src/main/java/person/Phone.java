@@ -2,10 +2,14 @@ package person;
 
 public class Phone {
 
-    public String number;
+    private final String number;
 
     public Phone(final String number) {
         this.number = number;
+    }
+
+    public final String getNumber() {
+        return this.number;
     }
 
     @Override
