@@ -1,6 +1,6 @@
 package person.appearance.hair;
 
-public class NoHair extends Hair {
+public class NoHair implements HairLength {
 
     @Override
     public final String toString() {

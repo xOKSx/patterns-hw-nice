@@ -14,6 +14,7 @@ public class AppearanceGenerator extends Generator<Appearance> {
     private String eyes;
     private int hairLength;
     private String hairColor;
+    private Hair hair;
 
     /**
      * Внешность генерируется по третьей цифре кода (i):
@@ -44,7 +45,6 @@ public class AppearanceGenerator extends Generator<Appearance> {
             default:
                 throw new IllegalStateException("Unexpected value: " + i / 2);
         }
-        hairLength = i;
 
         final HashMap<Integer, String> hairColorMap = new HashMap<>() {{
             put(1, "чёрные");
@@ -60,16 +60,18 @@ public class AppearanceGenerator extends Generator<Appearance> {
         if (i > 0) {
             hairColor = hairColorMap.get(i);
         }
+
+        hairLength = i;
+
+        if (hairLength > 0) {
+            hair = (hairLength > 4) ? new Hair(new LongHair(), hairColor) : new Hair(new ShortHair(), hairColor);
+        } else {
+            hair = new Hair(new NoHair(), hairColor);
+        }
     }
 
     @Override
     protected final Appearance buildResponse() {
-        Hair hair;
-        if (hairLength > 0) {
-            hair = (hairLength > 4) ? new LongHair(hairColor) : new ShortHair(hairColor);
-        } else {
-            hair = new NoHair();
-        }
         return new Appearance(eyes, hair);
     }
 }
